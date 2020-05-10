@@ -1,0 +1,90 @@
+#mainContent {
+  background-color: whitesmoke;
+  color: darkslategray;
+  text-align: left;
+  margin-left: 5px;
+}
+
+#assignmentWidget {
+  background-color: slateblue;
+  color: black;
+  text-align: left;
+  margin-right: 5px;
+}
+
+#cartContents {
+  background-color: slateblue;
+  color: black;
+  text-align: left;
+  margin-right: 5px;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.left, .right {
+  width: 25%;
+}
+
+.middle {
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body {
+  background-color: darkgrey;
+}
+
+header{
+  align-content: center;
+  background-color: whitesmoke;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+h1,h2 {
+  color: black
+  ;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
+
+footer{
+  background-color: whitesmoke;
+  text-align: center;
+  align-items: center;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+a:link {
+  color: black;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+}
+
+/* mouse over link */
+a:hover {
+  color: red;
+}
+
+/* selected link */
+a:active {
+  color: yellow;
+}
