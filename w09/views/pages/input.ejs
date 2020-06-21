@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>W09 Postage Calculator</title>
+  </head>
+  <body>
+    <h1>W09 Postage Calculator</h1>
+
+    <form>
+      <input type="radio" id="lettersStamped" name="mailType" value="lettersStamped" onclick="getType">
+      <label for="lettersStamped">Letters - Stamped</label><br>
+      <input type="radio" id="lettersMetered" name="mailType" value="lettersMetered" onclick="getType">
+      <label for="lettersMetered">Letters Metered</label><br>
+      <input type="radio" id="largeEnvelopes" name="mailType" value="largeEnvelopes" onclick="getType">
+      <label for="largeEnvelopes">Large Envelopes</label><br>
+      <input type="radio" id="retail" name="mailType" value="retail" onclick="getType">
+      <label for="retail">Retail Parcels</label><br><br>
+
+      <hr>
+
+      <label for="weight">Weight in Oz (between 1 and 13):</label>
+      <input type="number" id="weight" name="weight" min="1" max="13" onclick="getWeight"><br>
+
+      <hr>
+      <input type="submit" value="Submit" onclick="getPrice">
+    </form>
+    <h3>Your Cost is: </h3>
+    <p id='cost'>$</p>
+
+    <script>
+
+      var type;
+      var weight;
+
+      function getType(){
+        var type;
+        if (document.getElementById("lettersStamped").checked == true){
+          type = document.getElementById("lettersStamped").value;
+        }
+        else if (document.getElementById("lettersMetered").checked == true){
+          type = document.getElementById("lettersMetered").value;
+        }
+        else if (document.getElementById("largeEnvelopes").checked == true){
+          type = document.getElementById("largeEnvelopes").value;
+        }
+        else if (document.getElementById("retail").checked == true){
+          type = document.getElementById("retail").value;
+        }
+
+        return type;
+      }
+
+      function getWeight(){
+        var weight;
+
+        weight = document.getElementById("weight").value;
+
+        return weight;
+      }
+
+      function getPrice(packageType, weight) {
+        var price;
+        var type;
+
+        if (packageType == "lettersStamped"){
+          price = 0.40 + weight * 0.15;
+        }
+        else if(packageType == "lettersMetered"){
+          price = 0.35 + weight * 0.15;
+        }
+        else if(packageType == "largeEnvelopes"){
+          price = 0.80 + weight * 0.20;
+        }
+        else if(packageType == "retail"){
+          if(weight >= 1 && weight < 5){
+            price = 3.80;
+          }
+          else if(weight >= 4 && weight < 9){
+            price = 4.60;
+          }
+          else if(weight >= 3 && weight < 13){
+            price = 5.30;
+          }
+          else if(weight == 13){
+            price = 5.90;
+          }
+          else{
+            price = 0.00;
+          }
+        }
+          return price;
+      }
+
+      type = getType();
+      weight = getWeight();
+
+      document.getElementById("cost").innerHTML = getPrice(type, weight);
+    </script>
+  </body>
+</html>
