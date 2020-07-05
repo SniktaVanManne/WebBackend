@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Medication Search</title>
+
+<script src="drugs-clientside.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<h1>Search Medications</h1>
+
+	<input type="text" id="brandName" placeholder="Brand Name"> <button onclick="searchByBrand()">Search by Book</button><br>
+	<input type="text" id="genericName" placeholder="Generic Name"> <button onclick="searchByGeneric()">Search by Topic</button><br>
+
+	<div>
+		<h2>Results</h2>
+		<ul id="medications">
+		</ul>
+	</div>
+
+</body>
+</html>
