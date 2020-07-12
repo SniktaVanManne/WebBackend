@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <meta charset="utf-8">
+    <title>Project 2 Add Card</title>
+    <style>
+      div {
+        margin-top: 27px;
+      }
+      #serializearray, #serialize {
+        background-color: #eee;
+        border: 1px solid #111;
+        padding: 3px;
+        margin: 9px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Add Flash Card</h1>
+
+    <form action="/card" method="post">
+     <!-- <input type="radio" name="foo" value="1" checked="checked" />
+     <input type="radio" name="foo" value="0" /> -->
+     <label for="brand">Brand Name:</label><br>
+     <input name="brand" value="Brand" /> <br>
+     <label for="generic">Generic Name:</label><br>
+     <input name="generic" value="Generic" /> <br>
+     <label for="commonSE">Common Side Effects:</label><br>
+     <input name="commonSE" value="" /> <br>
+     <label for="severeSE">Severe Side Effects:</label><br>
+     <input name="severeSE" value="" /> <br>
+     <label for="dosing">Dosing Routes:</label><br>
+     <input name="dosing" value="" /> <br>
+     <!-- <select name="this">
+         <option value="hi" selected="selected">Hi</option>
+         <option value="ho">Ho</option>
+     </select> -->
+     <hr>
+     <input type="submit" value="Submit">
+
+    </form>
+
+    <div>$('form').serializeArray():</div>
+    <div id=serializearray>asfdg</div>
+
+    <div>$('form').serialize():</div>
+    <div id=serialize>asfdg</div>
+
+
+    <script type="text/javascript">
+
+
+
+        $(document).ready(function(){
+
+          $('#submit').on('click', function(){
+              $('#submit').slideToggle(200);
+          });
+
+        });
+
+        $(function() {
+          var update = function() {
+              $('#serializearray').text(
+                  JSON.stringify($('form').serializeArray())
+              );
+              $('#serialize').text(
+                  JSON.stringify($('form').serialize())
+              );
+          };
+          update();
+          $('form').change(update);
+        })
+
+    </script>
+  </body>
+</html>
