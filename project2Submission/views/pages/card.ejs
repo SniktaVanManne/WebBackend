@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <meta charset="utf-8">
+    <title>Project 2 Add Card</title>
+    <style>
+      div {
+        margin-top: 27px;
+      }
+      #serializearray, #serialize {
+        background-color: #eee;
+        border: 1px solid #111;
+        padding: 3px;
+        margin: 9px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Creator's Note: <br> The scope of this project ballooned each each as new technologies were introduced <br>
+    and I tried including each week's topic into my project. <br>
+    The result is, nothing is working and unless you look at the source code, you won't see
+    anything resembling a project. <br>
+    Feel free to choose "An Attempt Was Made" and move on.</h1>
+    <h1>Get Card</h1>
+
+    <form action="/getCard" method="POST" onchange="update()">
+     <!-- <input type="radio" name="foo" value="1" checked="checked" />
+     <input type="radio" name="foo" value="0" /> -->
+     <label for="brand">Brand Name:</label><br>
+     <input name="brand" value="Brand" /> <br>
+     <label for="generic">Generic Name:</label><br>
+     <input name="generic" value="Generic" /> <br>
+     <label for="common">Common Side Effects:</label><br>
+     <input name="common" value="" /> <br>
+     <label for="severe">Severe Side Effects:</label><br>
+     <input name="severe" value="" /> <br>
+     <label for="dosing">Dosing Routes:</label><br>
+     <input name="dosing" value="" /> <br>
+     <!-- <select name="this">
+         <option value="hi" selected="selected">Hi</option>
+         <option value="ho">Ho</option>
+     </select> -->
+     <hr>
+     <input type="submit" value="Submit" onsubmit="createCard()">
+
+    </form>
+
+    <div>$('form').serializeArray():</div>
+    <div id=serializearray>asfdg</div>
+
+    <div>$('form').serialize():</div>
+    <div id=serialize>asfdg</div>
+
+
+    <script type="text/javascript">
+
+      var update = function() {
+          $('#serializearray').text(
+              JSON.stringify($('form').serializeArray())
+          );
+          $('#serialize').text(
+              JSON.stringify($('form').serialize())
+          );
+      };
+      update();
+
+      function createCard(){
+        var brand = document.getElementsByName('brand');
+        var generic = document.getElementsByName('generic');
+        var common = document.getElementsByName('common');
+        var severe = document.getElementsByName('severe');
+        var routes = document.getElementsByName('routes');
+
+        console.log(brand, generic, common, severe, routes);
+      }
+
+
+    </script>
+  </body>
+</html>

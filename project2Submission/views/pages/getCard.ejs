@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <meta charset="utf-8">
+    <title>Project 2 Add Card</title>
+    <style>
+      div {
+        margin-top: 27px;
+      }
+      #serializearray, #serialize {
+        background-color: #eee;
+        border: 1px solid #111;
+        padding: 3px;
+        margin: 9px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Get Card</h1>
+
+    <form action="/getCard" method="POST" onchange="update()">
+     <!-- <input type="radio" name="foo" value="1" checked="checked" />
+     <input type="radio" name="foo" value="0" /> -->
+     <label for="brand">Brand Name:</label><br>
+     <input name="brand" value="Brand" /> <br>
+     <label for="generic">Generic Name:</label><br>
+     <input name="generic" value="Generic" /> <br>
+
+     <hr>
+     <input type="submit" value="Submit" onsubmit="getCard()">
+
+    </form>
+
+    <h1>Medication Information: </h1>
+    <h2>Brand: </h2>
+    <h2>Generic: </h2>
+    <h2>Common Side Effects: </h2>
+    <h2>Severe Side Effects: </h2>
+    <h2>Delivery Routes: </h2>
+
+    <div>$('form').serializeArray():</div>
+    <div id=serializearray>asfdg</div>
+
+    <div>$('form').serialize():</div>
+    <div id=serialize>asfdg</div>
+
+
+    <script type="text/javascript">
+
+      var update = function() {
+          $('#serializearray').text(
+              JSON.stringify($('form').serializeArray())
+          );
+          $('#serialize').text(
+              JSON.stringify($('form').serialize())
+          );
+      };
+      update();
+
+      function getCard(){
+        var brand = document.getElementsByName('brand');
+        var generic = document.getElementsByName('generic');
+        var common = document.getElementsByName('common');
+        var severe = document.getElementsByName('severe');
+        var routes = document.getElementsByName('routes');
+
+        console.log(brand, generic, common, severe, routes);
+      }
+
+
+    </script>
+  </body>
+</html>
